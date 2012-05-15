@@ -6,7 +6,7 @@ c_max(f, 20).
 
 w_charge(20).
 
-control_station(c).
+control(c).
 c(c, i1, 30).
 c(c, i2, 5).
 c(c, i3, half_full).

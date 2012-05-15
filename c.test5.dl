@@ -4,7 +4,7 @@ c_max(w, 10).
 c_max(psh, 15).
 c_max(f, 20).
 
-control_station(c).
+control(c).
 c(c, i1, 0).
 c(c, i2, 5).
 c(c, i3, half_full).
