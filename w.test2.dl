@@ -1,0 +1,7 @@
+% wind at lower minimum operational bound
+
+windmill(w). c_max(w, 20).
+c(w, i1, 5). c(w, iw, 5).
+expect_c(w, i1, 5).
+expect_c(w, iw, 5).
+expect_p(w, op, 5).
