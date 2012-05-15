@@ -1,0 +1,6 @@
+UNCOMPUTED_c(C, O, X) :- expect_c(C, O, X), not c(C, O, X).
+UNCOMPUTED_p(C, O, X) :- expect_p(C, O, X), not p(C, O, X).
+UNEXPECTED_c(C, O, X) :- c(C, O, X), not expect_c(C, O, X).
+UNEXPECTED_p(C, O, X) :- p(C, O, X), not expect_p(C, O, X).
+DUPLICATED_c(C, O, X, Y) :- c(C, O, X), c(C, O, Y), X < Y.
+DUPLICATED_p(C, O, X, Y) :- p(C, O, X), p(C, O, Y), X < Y.
