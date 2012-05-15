@@ -1,0 +1,17 @@
+% load 0, demand 50, storage empty, wind speed 0. 
+
+c_max(w, 10).
+c_max(psh, 15).
+c_max(f, 20).
+
+control_station(c).
+c(c, i1, 0).
+c(c, i2, 50).
+c(c, i3, empty).
+c(c, i4, 0).
+
+expect_c(c, o1, 0).
+expect_c(c, o2, 0).
+expect_c(c, o3, 50).
+expect_c(c, o4, 1).
+expect_c(c, o5, 0).

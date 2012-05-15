@@ -1,0 +1,19 @@
+% load 0, demand 5, storage half_full, wind speed 5. load 10, demand 5
+
+c_max(w, 10).
+c_max(psh, 15).
+c_max(f, 20).
+
+w_charge(20).
+
+control_station(c).
+c(c, i1, 10).
+c(c, i2, 5).
+c(c, i3, half_full).
+c(c, i4, 5).
+
+expect_c(c, o1, charge).
+expect_c(c, o2, 0).
+expect_c(c, o3, 0).
+expect_c(c, o4, 2).
+expect_c(c, o5, 5).
