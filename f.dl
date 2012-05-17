@@ -1,0 +1,9 @@
+p(P, op, X) :- caloric_plant(P),
+               c(P, i1, X), c_max(P, Y),
+               X <= Y,
+               not ab(P).
+
+p(P, op, Y) :- caloric_plant(P),
+               c(P, i1, X), c_max(P, Y),
+               X > Y,
+               not ab(P).
