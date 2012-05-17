@@ -1,0 +1,13 @@
+storage_plant(psh).
+
+c_max(psh, 20). 
+
+c(psh, i1, 5).
+c(psh, is, full).
+p(psh, i2, 0).
+
+expect_c(psh, i1, 5).
+expect_c(psh, is, full).
+expect_p(psh, i2, 0).
+
+expect_p(psh, op, 5).
