@@ -1,0 +1,40 @@
+nfull(P) :- storage_plant(P), c(P, is, empty).
+nfull(P) :- storage_plant(P), c(P, is, half_full).
+
+nempty(P) :- storage_plant(P), c(P, is, X), X != empty.
+
+p(P, op, Z) :- storage_plant(P),
+               c(P, is, empty),
+               c(P, i1, X), X != charge,
+               p(P, i2, Z),
+               not ab(P).
+
+p(P, op, 0) :- storage_plant(P),
+               c(P, i1, charge),
+               nfull(P),
+               p(P, i2, X), w_charge(MaxCharge), X <= MaxCharge, X > 0,
+               not ab(P).
+
+p(P, op, Z) :- storage_plant(P),
+               c(P, i1, charge),
+               nfull(P),
+               p(P, i2, X), w_charge(MaxCharge), X > MaxCharge,
+               Z = X - MaxCharge,
+               not ab(P).
+
+% illegal charge, reroute in to out
+
+p(P, op, X) :- storage_plant(P),
+               c(P, i1, charge), c(P, is, full),
+               p(P, i2, X),
+               not ab(P).
+
+p(P, op, Z) :- storage_plant(P),
+               c(P, i1, X), p(P, i2, Y), nempty(P), c_max(P, MaxCap),
+               X <= MaxCap, X >= 0, Z = X + Y,
+               not ab(P).
+
+p(P, op, MaxCap) :- storage_plant(P),
+                    c(P, i1, X), nempty(P), c_max(P, MaxCap),
+                    X > MaxCap,
+                    not ab(P).
