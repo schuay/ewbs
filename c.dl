@@ -77,3 +77,27 @@ c(c, o1, MaxCap) :- psh_nempty,
                     to_produce(X), c(c, o2, Y), c_max(psh, MaxCap),
                     Z = X - Y, Z > MaxCap,
                     not ab(c).
+
+%%%%% fossil fuel output %%%%%
+
+to_produce_f(Z) :- c(c, o1, A), c(c, o2, B), to_produce(X),
+                   Y = X - A, Z = Y - B.
+
+c(c, o3, 0) :- load_exceeds_or_equals_demand, not ab(c).
+
+% assuming that fossil fuel max capacity is ignored by control station
+c(c, o3, Z) :- demand_exceeds_load,
+               to_produce_f(Z),
+               not ab(c).
+
+%%%%% switching output %%%%%
+
+c(c, o4, 1) :- c(c, o1, X), X > 0, not ab(c).
+c(c, o4, 1) :- c(c, o2, X), X > 0, not ab(c).
+c(c, o4, 1) :- c(c, o3, X), X > 0, not ab(c).
+
+c(c, o4, 0) :- c(c, o1, 0), c(c, o2, 0), c(c, o3, 0), not ab(c).
+
+c(c, o5, 0) :- psh_full, not ab(c).
+c(c, o5, 0) :- demand_exceeds_load, not ab(c).
+c(c, o5, 0) :- load_equals_demand, not ab(c).

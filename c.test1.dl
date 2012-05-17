@@ -10,6 +10,11 @@ c(c, i2, 50).
 c(c, i3, empty).
 c(c, i4, 0).
 
+expect_c(c, i1, 0).
+expect_c(c, i2, 50).
+expect_c(c, i3, empty).
+expect_c(c, i4, 0).
+
 expect_c(c, o1, 0).
 expect_c(c, o2, 0).
 expect_c(c, o3, 50).

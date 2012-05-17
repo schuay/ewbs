@@ -10,6 +10,11 @@ c(c, i2, 5).
 c(c, i3, half_full).
 c(c, i4, 5).
 
+expect_c(c, i1, 0).
+expect_c(c, i2, 5).
+expect_c(c, i3, half_full).
+expect_c(c, i4, 5).
+
 expect_c(c, o1, 0).
 expect_c(c, o2, 5).
 expect_c(c, o3, 0).
