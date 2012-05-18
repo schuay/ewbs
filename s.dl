@@ -1,0 +1,39 @@
+p(S, o2, X) :- switching(S),
+               c(S, i4, 0), p(S, i6, X),
+               not ab(S).
+
+p(S, o1, 0) :- switching(S),
+               c(S, i4, 0),
+               not ab(S).
+
+input_sum(S, X) :- switching(S),
+                p(S, i1, A), p(S, i2, B), p(S, i3, C), p(S, i6, D),
+                E = A + B, F = E + C, X = F + D.
+
+p(S, o2, X) :- switching(S),
+               c(S, i4, 1), input_sum(S, X),
+               not ab(S).
+
+p(S, o1, 0) :- switching(S),
+               c(S, i4, 1),
+               not ab(S).
+
+p(S, o2, Rm) :- switching(S),
+                c(S, i4, 2), c(S, i5, Ch), p(S, i6, In),
+                Ch <= In, Rm = In - Ch,
+                not ab(S).
+
+p(S, o1, Ch) :- switching(S),
+                c(S, i4, 2), c(S, i5, Ch), p(S, i6, In),
+                Ch <= In,
+                not ab(S).
+
+p(S, o2, 0) :- switching(S),
+                c(S, i4, 2), c(S, i5, Ch), p(S, i6, In),
+                Ch > In,
+                not ab(S).
+
+p(S, o1, In) :- switching(S),
+                c(S, i4, 2), c(S, i5, Ch), p(S, i6, In),
+                Ch > In,
+                not ab(S).
