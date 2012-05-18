@@ -1,0 +1,34 @@
+c_max(psh, 20).
+c_max(w, 15).
+c_max(f, 60).
+w_charge(30).
+
+control(c).
+storage_plant(psh).
+windmill(w).
+caloric_plant(f).
+switching(s).
+
+c(c, i1, V) :- in_c(l_current, V), not ab(l_current).
+c(c, i2, V) :- in_c(l_demand, V), not ab(l_demand).
+c(c, i3, V) :- in_c(s_storage, V), not ab(s_storage).
+c(psh, is, V) :- in_c(s_storage, V), not ab(s_storage).
+c(c, i4, V) :- in_c(s_wind, V), not ab(s_wind).
+c(w, iw, V) :- in_c(s_wind, V), not ab(s_wind).
+
+p(s, i6, V) :- in_p(p_in, V), not ab(p_in).
+
+c(psh, i1, V) :- c(c, o1, V), not ab(out_c_o1).
+c(w, i1, V) :- c(c, o2, V), not ab(out_c_o2).
+c(f, i1, V) :- c(c, o3, V), not ab(out_c_o3).
+c(s, i4, V) :- c(c, o4, V), not ab(out_c_o4).
+c(s, i5, V) :- c(c, o5, V), not ab(out_c_o5).
+
+p(s, i1, V) :- p(psh, op, V), not ab(out_psh_op).
+
+p(s, i2, V) :- p(w, op, V), not ab(out_w_op).
+
+p(s, i3, V) :- p(f, op, V), not ab(out_f_op).
+
+p(psh, i2, V) :- p(s, o1, V), not ab(out_s_i2).
+out_p(p_out, V) :- p(s, o2, V), not ab(p_out).
