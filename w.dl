@@ -1,11 +1,10 @@
-windmill(w).
-p(w, op, 0) :- c(w, iw, Wind), Wind < 5, not ab(w).
-p(w, op, 0) :- c(w, iw, Wind), Wind > 40, not ab(w).
-p(w, op, X) :- c(w, iw, Wind), c(w, i1, X),
-               c_max(w, MaxCap), X <= MaxCap, X >= 0,
+p(W, op, 0) :- windmill(W), c(W, iw, Wind), Wind < 5, not ab(W).
+p(W, op, 0) :- windmill(W), c(W, iw, Wind), Wind > 40, not ab(W).
+p(W, op, X) :- windmill(W), c(W, iw, Wind), c(W, i1, X),
+               c_max(W, MaxCap), X <= MaxCap, X >= 0,
                Wind >= 5, Wind <= 40,
-               not ab(w).
-p(w, op, MaxCap) :- c(w, iw, Wind), c(w, i1, X),
-                    c_max(w, MaxCap), X > MaxCap,
+               not ab(W).
+p(W, op, MaxCap) :- windmill(W), c(W, iw, Wind), c(W, i1, X),
+                    c_max(W, MaxCap), X > MaxCap,
                     Wind >= 5, Wind <= 40,
-                    not ab(w).
+                    not ab(W).

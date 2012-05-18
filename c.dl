@@ -1,103 +1,101 @@
-control(c).
-
 %%%%% windmill output %%%%%
 
-wind_ok :- c(c, i4, Wind), Wind >= 5, Wind <= 40.
-wind_nok :- c(c, i4, Wind), Wind < 5.
-wind_nok :- c(c, i4, Wind), Wind > 40.
+wind_ok :- control(C), c(C, i4, Wind), Wind >= 5, Wind <= 40.
+wind_nok :- control(C), c(C, i4, Wind), Wind < 5.
+wind_nok :- control(C), c(C, i4, Wind), Wind > 40.
 
 load_exceeds_or_equals_demand :- load_equals_demand.
 load_exceeds_or_equals_demand :- load_exceeds_demand.
-load_equals_demand :- c(c, i1, Load), c(c, i2, Demand), Load == Demand.
-load_exceeds_demand :- c(c, i1, Load), c(c, i2, Demand), Load > Demand.
-demand_exceeds_load :- c(c, i1, Load), c(c, i2, Demand), Load < Demand.
+load_equals_demand :- control(C), c(C, i1, Load), c(C, i2, Demand), Load == Demand.
+load_exceeds_demand :- control(C), c(C, i1, Load), c(C, i2, Demand), Load > Demand.
+demand_exceeds_load :- control(C), c(C, i1, Load), c(C, i2, Demand), Load < Demand.
 
-to_produce(X) :- c(c, i1, Load), c(c, i2, Demand), X = Demand - Load.
+to_produce(X) :- control(C), c(C, i1, Load), c(C, i2, Demand), X = Demand - Load.
 
-c(c, o2, 0) :- wind_nok, not ab(c).
-c(c, o2, 0) :- wind_ok,
+c(C, o2, 0) :- control(C), wind_nok, not ab(C).
+c(C, o2, 0) :- control(C), wind_ok,
                load_exceeds_or_equals_demand,
-               not ab(c).
-c(c, o2, X) :- wind_ok,
+               not ab(C).
+c(C, o2, X) :- control(C), wind_ok,
                demand_exceeds_load,
                to_produce(X), c_max(w, MaxCap),
                X <= MaxCap,
-               not ab(c).
-c(c, o2, MaxCap) :- wind_ok,
+               not ab(C).
+c(C, o2, MaxCap) :- control(C), wind_ok,
                     demand_exceeds_load,
                     to_produce(X), c_max(w, MaxCap),
                     X > MaxCap,
-                    not ab(c).
+                    not ab(C).
 
 %%%%% pumped-storage output %%%%%
 
-psh_empty :- c(c, i3, empty).
-psh_nempty :- c(c, i3, half_full).
-psh_nempty :- c(c, i3, full).
+psh_empty :- control(C), c(C, i3, empty).
+psh_nempty :- control(C), c(C, i3, half_full).
+psh_nempty :- control(C), c(C, i3, full).
 
-psh_full :- c(c, i3, full).
-psh_nfull :- c(c, i3, half_full).
-psh_nfull :- c(c, i3, empty).
+psh_full :- control(C), c(C, i3, full).
+psh_nfull :- control(C), c(C, i3, half_full).
+psh_nfull :- control(C), c(C, i3, empty).
 
-c(c, o1, 0) :- psh_empty, not ab(c).
+c(C, o1, 0) :- control(C), psh_empty, not ab(C).
 
 % charge pumped-storage
 
-c(c, o1, charge) :- psh_nfull,
+c(C, o1, charge) :- control(C), psh_nfull,
                     load_exceeds_demand,
-                    not ab(c).
-c(c, o4, 2) :- psh_nfull,
+                    not ab(C).
+c(C, o4, 2) :- control(C), psh_nfull,
                load_exceeds_demand,
-               not ab(c).
-c(c, o5, P) :- psh_nfull,
+               not ab(C).
+c(C, o5, P) :- control(C), psh_nfull,
                load_exceeds_demand,
-               c(c, i1, Load), c(c, i2, Demand), w_charge(MaxCap),
+               c(C, i1, Load), c(C, i2, Demand), w_charge(MaxCap),
                P = Load - Demand, P <= MaxCap,
-               not ab(c).
-c(c, o5, MaxCap) :- psh_nfull,
+               not ab(C).
+c(C, o5, MaxCap) :- control(C), psh_nfull,
                     load_exceeds_demand,
-                    c(c, i1, Load), c(c, i2, Demand), w_charge(MaxCap),
+                    c(C, i1, Load), c(C, i2, Demand), w_charge(MaxCap),
                     P = Load - Demand, P > MaxCap,
-                    not ab(c).
+                    not ab(C).
 
-c(c, o1, 0) :- psh_full,
+c(C, o1, 0) :- control(C), psh_full,
                load_exceeds_demand,
-               not ab(c).
+               not ab(C).
 
-c(c, o1, 0) :- load_equals_demand,
-               not ab(c).
+c(C, o1, 0) :- control(C), load_equals_demand,
+               not ab(C).
 
-c(c, o1, Z) :- psh_nempty,
+c(C, o1, Z) :- control(C), psh_nempty,
                demand_exceeds_load,
-               to_produce(X), c(c, o2, Y), c_max(psh, MaxCap),
+               to_produce(X), c(C, o2, Y), c_max(psh, MaxCap),
                Z = X - Y, Z <= MaxCap,
-               not ab(c).
-c(c, o1, MaxCap) :- psh_nempty,
+               not ab(C).
+c(C, o1, MaxCap) :- control(C), psh_nempty,
                     demand_exceeds_load,
-                    to_produce(X), c(c, o2, Y), c_max(psh, MaxCap),
+                    to_produce(X), c(C, o2, Y), c_max(psh, MaxCap),
                     Z = X - Y, Z > MaxCap,
-                    not ab(c).
+                    not ab(C).
 
 %%%%% fossil fuel output %%%%%
 
-to_produce_f(Z) :- c(c, o1, A), c(c, o2, B), to_produce(X),
+to_produce_f(Z) :- control(C), c(C, o1, A), c(C, o2, B), to_produce(X),
                    Y = X - A, Z = Y - B.
 
-c(c, o3, 0) :- load_exceeds_or_equals_demand, not ab(c).
+c(C, o3, 0) :- control(C), load_exceeds_or_equals_demand, not ab(C).
 
 % assuming that fossil fuel max capacity is ignored by control station
-c(c, o3, Z) :- demand_exceeds_load,
+c(C, o3, Z) :- control(C), demand_exceeds_load,
                to_produce_f(Z),
-               not ab(c).
+               not ab(C).
 
 %%%%% switching output %%%%%
 
-c(c, o4, 1) :- c(c, o1, X), X > 0, not ab(c).
-c(c, o4, 1) :- c(c, o2, X), X > 0, not ab(c).
-c(c, o4, 1) :- c(c, o3, X), X > 0, not ab(c).
+c(C, o4, 1) :- control(C), c(C, o1, X), X > 0, not ab(C).
+c(C, o4, 1) :- control(C), c(C, o2, X), X > 0, not ab(C).
+c(C, o4, 1) :- control(C), c(C, o3, X), X > 0, not ab(C).
 
-c(c, o4, 0) :- c(c, o1, 0), c(c, o2, 0), c(c, o3, 0), not ab(c).
+c(C, o4, 0) :- control(C), c(C, o1, 0), c(C, o2, 0), c(C, o3, 0), not ab(C).
 
-c(c, o5, 0) :- psh_full, not ab(c).
-c(c, o5, 0) :- demand_exceeds_load, not ab(c).
-c(c, o5, 0) :- load_equals_demand, not ab(c).
+c(C, o5, 0) :- control(C), psh_full, not ab(C).
+c(C, o5, 0) :- control(C), demand_exceeds_load, not ab(C).
+c(C, o5, 0) :- control(C), load_equals_demand, not ab(C).
