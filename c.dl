@@ -1,0 +1,17 @@
+control(c).
+
+%%%%% windmill output %%%%%
+
+c(c, o2, 0) :- c(c, i4, Wind), Wind < 5, not ab(c).
+c(c, o2, 0) :- c(c, i4, Wind), Wind > 40, not ab(c).
+c(c, o2, 0) :- c(c, i4, Wind), Wind >= 5, Wind <= 40,
+               c(c, i1, Load), c(c, i2, Demand), Load >= Demand,
+               not ab(c).
+c(c, o2, X) :- c(c, i4, Wind), Wind >= 5, Wind <= 40,
+               c(c, i1, Load), c(c, i2, Demand), c_max(w, MaxCap),
+               Load < Demand, X = Demand - Load, X <= MaxCap,
+               not ab(c).
+c(c, o2, MaxCap) :- c(c, i4, Wind), Wind >= 5, Wind <= 40,
+                    c(c, i1, Load), c(c, i2, Demand), c_max(w, MaxCap),
+                    Load < Demand, X = Demand - Load, X > MaxCap,
+                    not ab(c).
