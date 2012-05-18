@@ -1,0 +1,4 @@
+:- c(C, O, X), c(C, O, Y), X < Y.
+:- p(C, O, X), p(C, O, Y), X < Y.
+:- out_c(O, X), out_c(O, Y), X < Y.
+:- out_p(O, X), out_p(O, Y), X < Y.
