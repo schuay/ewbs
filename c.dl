@@ -42,6 +42,7 @@ psh_nfull(C) :- control(C), c(C, i3, empty).
 
 c(C, o1, 0) :- control(C),
                psh_empty(C),
+               demand_exceeds_or_equals_load(C),
                not ab(C).
 
 % charge pumped-storage
