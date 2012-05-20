@@ -1,0 +1,13 @@
+% PSH plant, exact charging, storages empty
+
+w_charge(10).
+
+storage_plant(p).
+c_max(p, 40).
+c(p, i1, charge).
+c(p, is, empty).
+p(p, i2, 5).
+expect_c(p, i1, charge).
+expect_c(p, is, empty).
+expect_p(p, i2, 5).
+expect_p(p, op, 0).

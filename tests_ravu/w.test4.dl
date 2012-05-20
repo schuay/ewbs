@@ -1,0 +1,9 @@
+% windmill, wind speed too low
+
+windmill(w).
+c_max(w, 20).
+c(w, i1, 10).
+c(w, iw, 4).
+expect_c(w, i1, 10).
+expect_c(w, iw, 4).
+expect_p(w, op, 0).

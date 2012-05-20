@@ -1,0 +1,13 @@
+% PSH plant, production, storages half-full
+
+w_charge(40).
+
+storage_plant(p).
+c_max(p, 20).
+c(p, i1, 20).
+c(p, is, half_full).
+p(p, i2, 0).
+expect_c(p, i1, 20).
+expect_c(p, is, half_full).
+expect_p(p, i2, 0).
+expect_p(p, op, 20).

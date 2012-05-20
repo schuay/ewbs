@@ -1,0 +1,13 @@
+% PSH plant, attempt at overproduction, storages full
+
+w_charge(40).
+
+storage_plant(p).
+c_max(p, 20).
+c(p, i1, 40).
+c(p, is, full).
+p(p, i2, 0).
+expect_c(p, i1, 40).
+expect_c(p, is, full).
+expect_p(p, i2, 0).
+expect_p(p, op, 20).

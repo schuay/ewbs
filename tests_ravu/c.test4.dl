@@ -1,0 +1,20 @@
+% control station, demand < load, psh charging partly
+
+w_charge(10).
+control(cs).
+
+c(cs, i1, 10).
+c(cs, i2, 5).
+c(cs, i3, empty).
+c(cs, i4, 10).
+
+expect_c(cs, i1, 10).
+expect_c(cs, i2, 5).
+expect_c(cs, i3, empty).
+expect_c(cs, i4, 10).
+
+expect_c(cs, o1, charge).
+expect_c(cs, o2, 0).
+expect_c(cs, o3, 0).
+expect_c(cs, o4, 2).
+expect_c(cs, o5, 5).

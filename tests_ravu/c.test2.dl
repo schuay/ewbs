@@ -1,0 +1,25 @@
+% control station, demand > load covered by windmill, psh full
+
+windmill(w).
+c_max(w, 20).
+
+storage_plant(psh).
+c_max(psh, 20).
+
+caloric_plant(f).
+c_max(f, 20).
+
+control(cs).
+c(cs, i1, 10).
+c(cs, i2, 11).
+c(cs, i3, full).
+c(cs, i4, 20).
+expect_c(cs, i1, 10).
+expect_c(cs, i2, 11).
+expect_c(cs, i3, full).
+expect_c(cs, i4, 20).
+expect_c(cs, o1, 0).
+expect_c(cs, o2, 1).
+expect_c(cs, o3, 0).
+expect_c(cs, o4, 1).
+expect_c(cs, o5, 0).

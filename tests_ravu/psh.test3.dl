@@ -1,0 +1,13 @@
+% PSH plant, overcharging, storages half-full
+
+w_charge(40).
+
+storage_plant(p).
+c_max(p, 40).
+c(p, i1, charge).
+c(p, is, half_full).
+p(p, i2, 50).
+expect_c(p, i1, charge).
+expect_c(p, is, half_full).
+expect_p(p, i2, 50).
+expect_p(p, op, 10).

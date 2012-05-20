@@ -1,0 +1,11 @@
+% PSH plant, production-only
+
+storage_plant(p).
+c_max(p, 40).
+c(p, i1, 10).
+c(p, is, full).
+p(p, i2, 0).
+expect_c(p, i1, 10).
+expect_c(p, is, full).
+expect_p(p, i2, 0).
+expect_p(p, op, 10).

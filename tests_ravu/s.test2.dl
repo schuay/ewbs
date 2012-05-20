@@ -1,0 +1,17 @@
+% switching station, no production
+
+switching(s).
+p(s, i1, 1).
+p(s, i2, 2).
+p(s, i3, 3).
+c(s, i4, 0).
+c(s, i5, 0).
+p(s, i6, 4).
+expect_p(s, i1, 1).
+expect_p(s, i2, 2).
+expect_p(s, i3, 3).
+expect_c(s, i4, 0).
+expect_c(s, i5, 0).
+expect_p(s, i6, 4).
+expect_p(s, o1, 0).
+expect_p(s, o2, 4).

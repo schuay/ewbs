@@ -1,0 +1,26 @@
+% control station, demand < load, psh charging fully
+
+windmill(w).
+c_max(w, 20).
+
+storage_plant(psh).
+c_max(psh, 20).
+
+caloric_plant(f).
+c_max(f, 20).
+
+w_charge(10).
+control(cs).
+c(cs, i1, 20).
+c(cs, i2, 5).
+c(cs, i3, empty).
+c(cs, i4, 10).
+expect_c(cs, i1, 20).
+expect_c(cs, i2, 5).
+expect_c(cs, i3, empty).
+expect_c(cs, i4, 10).
+expect_c(cs, o1, charge).
+expect_c(cs, o2, 0).
+expect_c(cs, o3, 0).
+expect_c(cs, o4, 2).
+expect_c(cs, o5, 10).

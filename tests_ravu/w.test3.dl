@@ -1,0 +1,9 @@
+% windmill, more power requested than producible
+
+windmill(w).
+c_max(w, 20).
+c(w, i1, 21).
+c(w, iw, 20).
+expect_c(w, i1, 21).
+expect_c(w, iw, 20).
+expect_p(w, op, 20).
