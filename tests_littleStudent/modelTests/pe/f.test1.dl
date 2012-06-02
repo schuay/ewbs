@@ -2,6 +2,7 @@
 %Last modified: 27.05.12 1:05 AM
 
 caloric_plant(f).
+c_max(f, 40).
 c(f,i1,0).
 expect_c(f, i1, 0).
 expect_p(f, op, 0).
