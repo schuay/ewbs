@@ -5,6 +5,9 @@ c_max(psh, 15).
 c_max(f, 20).
 
 control(c).
+windmill(w).
+storage_plant(psh).
+
 c(c, i1, 0).
 c(c, i2, 50).
 c(c, i3, half_full).

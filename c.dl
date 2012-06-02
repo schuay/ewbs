@@ -21,12 +21,12 @@ c(C, o2, 0) :- control(C), wind_ok(C),
                not ab(C).
 c(C, o2, X) :- control(C), wind_ok(C),
                demand_exceeds_load(C),
-               to_produce(C, X), c_max(w, MaxCap),
+               to_produce(C, X), c_max(W, MaxCap), windmill(W),
                X <= MaxCap,
                not ab(C).
 c(C, o2, MaxCap) :- control(C), wind_ok(C),
                     demand_exceeds_load(C),
-                    to_produce(C, X), c_max(w, MaxCap),
+                    to_produce(C, X), c_max(W, MaxCap), windmill(W),
                     X > MaxCap,
                     not ab(C).
 
@@ -73,12 +73,12 @@ c(C, o1, 0) :- control(C), load_equals_demand(C),
 
 c(C, o1, Z) :- control(C), psh_nempty(C),
                demand_exceeds_load(C),
-               to_produce(C, X), c(C, o2, Y), c_max(psh, MaxCap),
+               to_produce(C, X), c(C, o2, Y), c_max(P, MaxCap), storage_plant(P),
                Z = X - Y, Z <= MaxCap,
                not ab(C).
 c(C, o1, MaxCap) :- control(C), psh_nempty(C),
                     demand_exceeds_load(C),
-                    to_produce(C, X), c(C, o2, Y), c_max(psh, MaxCap),
+                    to_produce(C, X), c(C, o2, Y), c_max(P, MaxCap), storage_plant(P),
                     Z = X - Y, Z > MaxCap,
                     not ab(C).
 
