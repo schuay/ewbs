@@ -1,0 +1,12 @@
+%Author: Simerle Christopher
+
+%Testfile 1 for windmill
+%normal output
+
+windmill(w). 
+c_max(w, 20).
+c(w, i1, 5). 
+c(w, iw, 10).
+expect_c(w, i1, 5).
+expect_c(w, iw, 10).
+expect_p(w, op, 5).

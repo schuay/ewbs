@@ -1,0 +1,10 @@
+%Author: Peter Eder
+%Last modified: 27.05.12 01:09 AM
+
+windmill(w).
+c_max(w,20).
+c(w,iw,5).
+c(w,i1,20).
+expect_p(w,op,20).
+expect_c(w,i1,20).
+expect_c(w,iw,5).

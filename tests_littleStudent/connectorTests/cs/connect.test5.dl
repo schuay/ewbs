@@ -1,0 +1,19 @@
+%Author: Christopher Simerle
+
+% Storage = full
+% Wind = reicht nicht
+
+% • c max(psh, 20) defines the maximal capacity of the storage plant,
+% • c max(w, 15) defines the maximal capacity of the windmill,
+% • c max(f, 60) defines the maximal capacity of the fossil-fuel plant, and
+% • w charge(30) defines the maximal charging capacity of the storage plants.
+
+% es sollte nichts produziert und input = output geschalten werden
+% da auch die storage bereits voll ist
+
+in_c(s_storage, full).
+in_c(s_wind, 0).
+in_c(l_demand, 35).
+in_c(l_current, 45).
+in_p(p_in, 45).
+expect_out_p(p_out, 45).

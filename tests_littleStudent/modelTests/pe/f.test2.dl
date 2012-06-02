@@ -1,0 +1,8 @@
+%Author:Peter Eder
+%Last modified: 27.05.12 1:05 AM
+
+caloric_plant(f).
+c(f,i1,20).
+c_max(f,30).
+expect_c(f, i1, 20).
+expect_p(f, op, 20).

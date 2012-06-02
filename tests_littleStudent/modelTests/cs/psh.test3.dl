@@ -1,0 +1,16 @@
+%Author: Simerle Christopher
+
+%Testfile 3 for storage_plant
+% – In case i1 ̸= charge but i2 > 0 the station just redirects the power of
+% i2 to op.
+
+storage_plant(psh). 
+c_max(psh, 50).
+w_charge(20).
+c(psh, i1, 0).
+c(psh, is, empty). 
+p(psh, i2, 50).
+expect_c(psh, i1, 0).
+expect_c(psh, is, empty).
+expect_p(psh, i2, 50).
+expect_p(psh, op, 50).

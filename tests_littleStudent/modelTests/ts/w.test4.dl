@@ -1,0 +1,7 @@
+windmill(w). 
+c_max(w, 60).
+c(w, i1, 0). 
+c(w, iw, 60).
+expect_c(w, i1, 0). 
+expect_c(w, iw, 60). 
+expect_p(w, op, 0).

@@ -1,0 +1,18 @@
+%Author: Christopher Simerle
+
+% Storage = empty
+% Wind = reicht nicht
+
+% • c max(psh, 20) defines the maximal capacity of the storage plant,
+% • c max(w, 15) defines the maximal capacity of the windmill,
+% • c max(f, 60) defines the maximal capacity of the fossil-fuel plant, and
+% • w charge(30) defines the maximal charging capacity of the storage plants.
+
+% fossil fuel produziert
+
+in_c(s_storage, empty).
+in_c(s_wind, 0).
+in_c(l_demand, 60).
+in_c(l_current, 0).
+in_p(p_in, 0).
+expect_out_p(p_out, 60).

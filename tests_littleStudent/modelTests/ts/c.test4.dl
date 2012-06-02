@@ -1,0 +1,20 @@
+control(c).
+c(c,i1,30).
+c(c,i2,60).
+c(c,i3,full).
+c(c,i4,20).
+windmill(w).
+c_max(w, 10).
+caloric_plant(f).
+c_max(f, 10).
+storage_plant(psh).
+c_max(psh, 10).
+expect_c(c,i1,30).
+expect_c(c,i2,60).
+expect_c(c,i3,full).
+expect_c(c,i4,20).
+expect_c(c, o2, 10).
+expect_c(c, o3, 10).
+expect_c(c, o1, 10).
+expect_c(c, o4, 1).
+expect_c(c, o5, 0).

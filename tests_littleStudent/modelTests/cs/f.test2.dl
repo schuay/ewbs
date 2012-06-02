@@ -1,0 +1,10 @@
+%Author: Simerle Christopher
+
+%Testfile 2 for caloric_plant
+%normal output
+
+caloric_plant(f). 
+c_max(f, 50).
+c(f, i1, 20). 
+expect_c(f, i1, 20).
+expect_p(f, op, 20).

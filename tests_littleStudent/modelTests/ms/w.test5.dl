@@ -1,0 +1,19 @@
+% --------------------------------------
+%	Manuel Stadler
+%	0926556
+%	Tu Wien - SS 12
+%
+%	Test for windmill
+%
+% --------------------------------------
+
+windmill(w).
+c_max(w,20).
+
+c(w,i1,0).
+c(w,iw,10).
+
+expect_c(w,i1,0).
+expect_c(w,iw,10).
+
+expect_p(w,op,0).

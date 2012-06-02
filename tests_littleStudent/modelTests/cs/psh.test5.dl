@@ -1,0 +1,14 @@
+%Author: Simerle Christopher
+
+% – In case i1 = 0 and i2 = 0, it does not produce energy and therefore op = 0.
+
+storage_plant(psh). 
+c_max(psh, 50).
+w_charge(20).
+c(psh, i1, 0).
+c(psh, is, empty). 
+p(psh, i2, 0).
+expect_c(psh, i1, 0).
+expect_c(psh, is, empty).
+expect_p(psh, i2, 0).
+expect_p(psh, op, 0).

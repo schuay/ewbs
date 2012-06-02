@@ -1,0 +1,15 @@
+%Author: Simerle Christopher
+
+%Testfile 1 for storage_plant
+%normal output, charge plant with 20
+
+storage_plant(psh). 
+c_max(psh, 50).
+w_charge(30).
+c(psh, i1, charge).
+c(psh, is, empty). 
+p(psh, i2, 20).
+expect_c(psh, i1, charge).
+expect_c(psh, is, empty).
+expect_p(psh, i2, 20).
+expect_p(psh, op, 0).

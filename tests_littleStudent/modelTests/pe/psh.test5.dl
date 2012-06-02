@@ -1,0 +1,13 @@
+%Author: Peter Eder
+%Last modified: 26.05.12 11:50 PM
+
+c(w,is,half_full).
+storage_plant(w).
+c(w,i1,30).
+p(w,i2,20).
+w_charge(20).
+c_max(w,20).
+expect_p(w,op,40).
+expect_p(w,i2,20).
+expect_c(w,i1,30).
+expect_c(w,is,half_full).

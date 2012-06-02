@@ -1,0 +1,23 @@
+% – In case i4 = 2, the system should store poser in the hydroposer plant psh sith the energy 
+% mains supply. Therefore, o1 = i5 and o2 = i6 − i5. This is of course only possible if i6 ≥ i5; 
+% if this is not the case, it redirects as much energy as available to the storage plant, so 
+% o1 = i6 and o2 = 0 should not receive energy.
+
+% i5 = min((l_current - l_demand), s_charge)
+% i6<i5...dh main supply hat keine überschüssige energie zur verfügung
+
+switching(s). 
+p(s, i1, 0). 
+p(s, i2, 0). 
+p(s, i3, 0). 
+c(s, i4, 2). 
+c(s, i5, 15).
+p(s, i6, 10). 
+expect_p(s, i1, 0).
+expect_p(s, i2, 0).
+expect_p(s, i3, 0).
+expect_c(s, i4, 2). 
+expect_c(s, i5, 15).
+expect_p(s, i6, 10).
+expect_p(s, o1, 10).
+expect_p(s, o2, 0).

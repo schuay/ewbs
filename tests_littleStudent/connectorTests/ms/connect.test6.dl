@@ -1,0 +1,24 @@
+% --------------------------------------
+%	Manuel Stadler
+%	0926556
+%	Tu Wien - SS 12
+%
+%	connect test
+%
+%	Defined in connect.dl :
+% 
+%  	c_max(psh, 20).
+% 	c_max(w, 15).
+% 	c_max(f, 60).
+% 	w_charge(30).
+%
+% --------------------------------------
+
+in_c(l_current, 10).
+in_c(l_demand, 40).
+
+in_c(s_storage, empty).
+in_c(s_wind, 10).
+
+in_p(p_in, 10).
+expect_out_p(p_out, 40).

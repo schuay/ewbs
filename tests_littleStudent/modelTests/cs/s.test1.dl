@@ -1,0 +1,18 @@
+% – In case i4 = 0, the system is inactive and the incoming energy i6 is redirected 
+% to o2. Furthermore, o1 = 0 as the pumped-storage hydroposer plant psh should not receive energy.
+
+switching(s). 
+p(s, i1, 0). 
+p(s, i2, 0). 
+p(s, i3, 0). 
+c(s, i4, 0). 
+c(s, i5, 0).
+p(s, i6, 15). 
+expect_p(s, i1, 0).
+expect_p(s, i2, 0).
+expect_p(s, i3, 0).
+expect_c(s, i4, 0). 
+expect_c(s, i5, 0).
+expect_p(s, i6, 15).
+expect_p(s, o1, 0).
+expect_p(s, o2, 15).

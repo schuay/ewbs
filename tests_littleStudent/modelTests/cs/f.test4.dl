@@ -1,0 +1,9 @@
+%Author: Simerle Christopher
+
+%Testfile 4 for caloric_plant
+
+caloric_plant(f). 
+c_max(f, 60).
+c(f, i1, 60). 
+expect_c(f, i1, 60).
+expect_p(f, op, 60).

@@ -1,0 +1,37 @@
+%control(C) 
+%c(C, i1, L_cur)
+%c(C, i2, L_demand)
+%c(C, i3, S_storage)
+%c(C, i4, S_wind)
+
+%Component Types
+%control(C), storage_plant(C), windmill(C), caloric_plant(C), and switching(C)
+
+%Predicate c_max(P, V), with P ∈ {psh, w, f}, defines the maximal capacity V a power plant P can generate.
+
+%Predicate w_charge(V) defines the maximal energy V the storage plant can receive to store at once.
+
+% current > demand...charge storage (CASE storage == empty), storage wird geladen
+% also tested with min
+
+control(c).
+c(c,i1,40).
+c(c,i2,20).
+c(c,i3,empty).
+c(c,i4,40).
+windmill(w).
+c_max(w, 10).
+caloric_plant(f).
+c_max(f, 10).
+storage_plant(psh).
+c_max(psh, 10).
+w_charge(30).
+expect_c(c,i1,40).
+expect_c(c,i2,20).
+expect_c(c,i3,empty).
+expect_c(c,i4,40).
+expect_c(c, o1, charge).
+expect_c(c, o2, 0).
+expect_c(c, o3, 0).
+expect_c(c, o4, 2).
+expect_c(c, o5, 20).

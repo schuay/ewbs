@@ -1,0 +1,16 @@
+%Author: Simerle Christopher
+
+% – In case C_psh ≥ i1 > 0 and is̸=empty, it produces energy, so op = i1.
+% If it generates power, it simply adds this power to the redirected one from i2.
+% 
+
+storage_plant(psh). 
+c_max(psh, 50).
+w_charge(40).
+c(psh, i1, 30).
+c(psh, is, full). 
+p(psh, i2, 20).
+expect_c(psh, i1, 30).
+expect_c(psh, is, full).
+expect_p(psh, i2, 20).
+expect_p(psh, op, 50).

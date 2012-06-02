@@ -1,0 +1,21 @@
+% --------------------------------------
+%	Manuel Stadler
+%	0926556
+%	Tu Wien - SS 12
+%
+%	Test for pumped storage hydropower plant
+%
+% --------------------------------------
+
+storage_plant(w).
+w_charge(10).
+c_max(w, 10).
+
+c(w,i1,charge).
+c(w,is,full).
+p(w,i2,15).
+
+expect_c(w,i1,charge).
+expect_c(w,is,full).
+expect_p(w,i2,15).
+expect_p(w,op,15).

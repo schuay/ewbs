@@ -1,0 +1,28 @@
+%Author: Peter Eder
+%Last modified: 28.05.12 00:10 AM
+
+%demand = current
+%wind not ok
+%storage empty
+
+control(c).
+c(c,i1,20).
+c(c,i2,20).
+c(c,i3,empty).
+c(c,i4,4).
+windmill(w).
+caloric_plant(f).
+storage_plant(psh).
+c_max(f,30).
+c_max(psh,20).
+c_max(w,20).
+w_charge(20).
+expect_c(c,i1,20).
+expect_c(c,i2,20).
+expect_c(c,i3,empty).
+expect_c(c,i4,4).
+expect_c(c,o1,0).
+expect_c(c,o2,0).
+expect_c(c,o3,0).
+expect_c(c,o4,0).
+expect_c(c,o5,0).

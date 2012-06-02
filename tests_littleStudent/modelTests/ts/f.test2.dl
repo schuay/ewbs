@@ -1,0 +1,5 @@
+caloric_plant(f). 
+c_max(f, 0).
+c(f, i1, 5). 
+expect_c(f, i1, 5). 
+expect_p(f, op, 0).

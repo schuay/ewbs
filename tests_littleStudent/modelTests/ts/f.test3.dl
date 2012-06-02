@@ -1,0 +1,5 @@
+caloric_plant(f). 
+c_max(f, 30).
+c(f, i1, 35). 
+expect_c(f, i1, 35). 
+expect_p(f, op, 30).
