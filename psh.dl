@@ -34,7 +34,7 @@ p(P, op, Z) :- storage_plant(P),
                X <= MaxCap, X >= 0, Z = X + Y,
                not ab(P).
 
-p(P, op, MaxCap) :- storage_plant(P),
-                    c(P, i1, X), nempty(P), c_max(P, MaxCap),
-                    X > MaxCap,
+p(P, op, Z) :- storage_plant(P),
+                    c(P, i1, X), p(P, i2, Y), nempty(P), c_max(P, MaxCap),
+                    X > MaxCap, Z = MaxCap + Y,
                     not ab(P).
