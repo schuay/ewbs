@@ -7,4 +7,4 @@ c(pp, is, empty). % storage
 expect_c(pp, i1, 9).
 expect_p(pp, i2, 3).
 expect_c(pp, is, empty).
-expect_p(pp, op, 0). 
+expect_p(pp, op, 3).
