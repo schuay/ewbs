@@ -1,0 +1,10 @@
+% charge but full
+storage_plant(pp). c_max(pp, 15). w_charge(10).
+c(pp, i1, charge). % from control
+p(pp, i2, 3). % from switch
+c(pp, is, full). % storage
+
+expect_c(pp, i1, charge).
+expect_p(pp, i2, 3).
+expect_c(pp, is, full).
+expect_p(pp, op, 3). 

@@ -1,0 +1,5 @@
+% Überfordert
+caloric_plant(f). c_max(f, 10).
+c(f, i1, 15).
+expect_c(f, i1, 15).
+expect_p(f, op, 10).

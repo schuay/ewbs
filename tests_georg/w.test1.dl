@@ -1,0 +1,5 @@
+% normal function (wind on lower bound)
+windmill(ww). c_max(ww, 20).
+c(ww, i1, 5). c(ww, iw, 5).
+expect_c(ww, i1, 5). expect_c(ww, iw, 5).
+expect_p(ww, op, 5).

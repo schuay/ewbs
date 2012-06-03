@@ -1,0 +1,3 @@
+in_c(s_storage, full). in_c(s_wind, 0).
+in_c(l_demand, 45). in_c(l_current, 20). in_p(p_in, 20).
+out_p(p_out, 45).

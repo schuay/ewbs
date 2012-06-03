@@ -1,0 +1,5 @@
+% running on minimal power
+caloric_plant(ff). c_max(ff, 10).
+c(ff, i1, 1).
+expect_c(ff, i1, 1).
+expect_p(ff, op, 1).

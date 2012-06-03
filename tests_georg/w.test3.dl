@@ -1,0 +1,5 @@
+% too much wind
+windmill(fw). c_max(fw, 20).
+c(fw, i1, 5). c(fw, iw, 41).
+expect_c(fw, i1, 5). expect_c(fw, iw, 41).
+expect_p(fw, op, 0).

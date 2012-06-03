@@ -1,0 +1,4 @@
+% running only on wind and caloric
+in_c(s_storage, empty). in_c(s_wind, 5).
+in_c(l_demand, 45). in_c(l_current, 0). in_p(p_in, 5).
+out_p(p_out, 50).

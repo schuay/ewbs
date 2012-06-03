@@ -1,0 +1,4 @@
+% use only caloric
+in_c(s_storage, empty). in_c(s_wind, 50).
+in_c(l_demand, 50). in_c(l_current, 0). in_p(p_in, 10).
+out_p(p_out, 60).

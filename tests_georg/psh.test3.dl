@@ -1,0 +1,10 @@
+% produce and redirect but empty
+storage_plant(pp). c_max(pp, 15). w_charge(10).
+c(pp, i1, 9). % from control
+p(pp, i2, 3). % from switch
+c(pp, is, empty). % storage
+
+expect_c(pp, i1, 9).
+expect_p(pp, i2, 3).
+expect_c(pp, is, empty).
+expect_p(pp, op, 0). 

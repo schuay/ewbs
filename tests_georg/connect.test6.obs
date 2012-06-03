@@ -1,0 +1,4 @@
+% do nothing execept redirect
+in_c(s_storage, aaer). in_c(s_wind, 5).
+in_c(l_demand, 10). in_c(l_current, 10). in_p(p_in, 5).
+out_p(p_out, 5).

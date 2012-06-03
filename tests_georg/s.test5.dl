@@ -1,0 +1,16 @@
+% store over max but turned off
+switching(ss).
+p(ss, i1, 5). 
+p(ss, i2, 10).
+p(ss, i3, 3).
+c(ss, i4, 0).
+c(ss, i5, 28).
+p(ss, i6, 20).
+expect_p(ss, i1, 5).
+expect_p(ss, i2, 10).
+expect_p(ss, i3, 3).
+expect_c(ss, i4, 0).
+expect_c(ss, i5, 28).
+expect_p(ss, i6, 20).
+expect_p(ss, o1, 0).
+expect_p(ss, o2, 20).

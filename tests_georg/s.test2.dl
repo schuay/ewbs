@@ -1,0 +1,16 @@
+% off
+switching(s).
+p(s, i1, 5). 
+p(s, i2, 10).
+p(s, i3, 3).
+c(s, i4, 0).
+c(s, i5, 8).
+p(s, i6, 20).
+expect_p(s, i1, 5).
+expect_p(s, i2, 10).
+expect_p(s, i3, 3).
+expect_c(s, i4, 0).
+expect_c(s, i5, 8).
+expect_p(s, i6, 20).
+expect_p(s, o1, 0).
+expect_p(s, o2, 20).
