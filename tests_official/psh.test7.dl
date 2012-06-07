@@ -1,0 +1,36 @@
+% Test case for one component
+% Einfuehrung in wissensbasierte Systeme, VU
+% SS 2012
+% Project 1
+%
+%
+% pumped-storage hydropower plant
+% Predicate name: storage_plant(X)
+% Input:
+%		is - current state of the storage
+%		i1 - amount of power it should create
+%
+% Output:
+%		op - amount of power it generates
+
+%plant capacity
+c_max(psh,15).
+
+%power limit for charging
+w_charge(10).
+
+%defining the component
+storage_plant(psh).
+
+%input signals
+c(psh,is,empty).	% storage state
+c(psh,i1,8).	% control information from the control substation
+p(psh,i2,5).	% power input from the switching substation
+
+% expected input
+expect_c(psh,is,empty).
+expect_c(psh,i1,8).
+expect_p(psh,i2,5).
+
+% expected output
+expect_p(psh,op,5).	% power output

@@ -1,0 +1,28 @@
+% Test case for one component
+% Einfuehrung in wissensbasierte Systeme, VU
+% SS 2012
+% Project 1
+%
+%
+% fossil-fuel component
+% Predicate name: caloric_plant(X)
+% Input:
+%		i1 - amount of energy it should produce
+%
+% Output:
+%		op - amount of power it produces
+
+% plant capacity
+c_max(f,30).
+
+%defining the component
+caloric_plant(f).
+
+%input signals
+c(f,i1,31).	% control information from the control substation
+
+% expected input
+expect_c(f,i1,31).
+
+% expected output
+expect_p(f,op,30).	% power output to the storage plant

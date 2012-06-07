@@ -1,0 +1,45 @@
+% Test case for one component
+% Einfuehrung in wissensbasierte Systeme, VU
+% SS 2012
+% Project 1
+%
+%
+% Switching station component
+% Predicate name: switching(X)
+% Input:
+%		i1 - incomming power from the storage plant
+%		i2 - incomming power from the windmill
+%		i3 - incomming power from the fosill-fuel plannt
+%		i4 - control line 1 from the control station
+%		i5 - control line 2 from the control station
+%		i6 - incomming power from the mains
+%
+% Output:
+%		o1 - power to the storage plant
+%		o2 - power output to the mains  
+
+
+%defining the component
+switching(s).
+
+%input signals
+p(s,i1,0).	% power input from the storage plant
+p(s,i2,0).	% power input from the windmill
+p(s,i3,0).	% power input from the fosil-fuel based plant
+
+c(s,i4,2).	% connection 1 from the control station
+c(s,i5,5).	% connection 2 from the control station
+
+p(s,i6,3).	% power input from the mains
+
+% expected input
+expect_p(s,i1,0).
+expect_p(s,i2,0).
+expect_p(s,i3,0).
+expect_c(s,i4,2).
+expect_c(s,i5,5).
+expect_p(s,i6,3).
+
+% expected output
+expect_p(s,o1,3).	% power output to the storage plant
+expect_p(s,o2,0).	% power output to the mains supply

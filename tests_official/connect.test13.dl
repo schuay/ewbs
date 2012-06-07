@@ -1,0 +1,27 @@
+% Test case for one component
+% Einfuehrung in wissensbasierte Systeme, VU
+% SS 2012
+% Project 1
+%
+%
+% System Test
+% Input:
+% in_c(l_current, V) defines the current capacity of the mains supply,
+% in_c(l_demand, V) defines the current demand of the mains supply,
+% in_c(s_storage, V) defines the current state of the storage,
+% in_c(s_wind, V) defines the current wind speed.
+% in_p(p_in, V) defines the incoming power of the system in Kilowatt,
+%
+% Output
+% out_p(p_out, V) defines the power leaving the system in Kilowatt,
+
+
+%input signals
+in_c(l_current,40).	% defines the current capacity of the mains supply,
+in_c(l_demand, 9).	% defines the current demand of the mains supply,
+in_c(s_storage, full).	% defines the current state of the storage,
+in_c(s_wind, 5).		% defines the current wind speed.
+in_p(p_in, 40).		% defines the incoming power of the system in Kilowatt,
+
+% expected output
+expected_out_p(p_out,40).	% power output of the windmill

@@ -1,0 +1,32 @@
+% Test case for one component
+% Einfuehrung in wissensbasierte Systeme, VU
+% SS 2012
+% Project 1
+%
+%
+% windmill
+% Predicate name: windmill(X)
+% Input:
+%		iw - current wind speed
+%		i1 - amount of power it should create
+%
+% Output:
+%		op - amount of power it generates
+
+
+% plant capacity
+c_max(w,15).
+
+%defining the component
+windmill(w).
+
+%input signals
+c(w,iw,40).	% current windspeed
+c(w,i1,10).	% information from the conrtol substation
+
+% expected input
+expect_c(w,iw,40).
+expect_c(w,i1,10).
+
+% expected output
+expect_p(w,op,10).	% power output of the windmill

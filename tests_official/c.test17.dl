@@ -1,0 +1,55 @@
+% Test case for one component
+% Einfuehrung in wissensbasierte Systeme, VU
+% SS 2012
+% Project 1
+%
+%
+% Control component
+% Predicate name: control(X)
+% Input:
+%		i1 - current capacity
+%		i2 - capacity demand
+%		i3 - state of storage plant (full, half-full or empty)
+%		i4 - weather condition (wind, in km/h)
+%
+% Output:
+%		o1 - control line to storage plant
+%		o2 - control line to widnmil
+%		o3 - control line to fosil-fuel plant
+%		o4 - control line 1 to switching station
+%		o5 - control line 2 to switching station
+
+%defining the component
+storage_plant(psh).
+windmill(w).
+caloric_plant(f).
+
+%plant capacities
+c_max(psh,10).
+c_max(w,10).
+c_max(f,20).
+
+%power limit for charging
+w_charge(10).
+
+%defining the component
+control(c).
+
+%input signals
+c(c,i1,20).	% current power from the mains
+c(c,i2,9).	% actual demand 
+c(c,i3,half_full).	% state of the storage plant
+c(c,i4,15).	% wind speed at the windmill
+
+% expected input
+expect_c(c,i1,20).
+expect_c(c,i2,9).
+expect_c(c,i3,half_full).
+expect_c(c,i4,15).
+
+% expected output
+expect_c(c,o1,charge).	% control information for the storage-plant
+expect_c(c,o2,0).	% control information for the windmill
+expect_c(c,o3,0).	% control information for the fosil-fuel plant
+expect_c(c,o4,2).	% control information 1 for switching substation
+expect_c(c,o5,10).	% control information 2 for switching substation
