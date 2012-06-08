@@ -4,7 +4,6 @@
 %demand > current
 %wind ok
 %storage empty
-%assuming that c_max(f, .) is ignored by c (the behavior is not specified)
 
 control(c).
 c(c,i1,0).
@@ -24,6 +23,6 @@ expect_c(c,i3,empty).
 expect_c(c,i4,5).
 expect_c(c,o1,0).
 expect_c(c,o2,20).
-expect_c(c,o3,40).
+expect_c(c,o3,30).
 expect_c(c,o4,1).
 expect_c(c,o5,0).
