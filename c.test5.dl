@@ -7,6 +7,7 @@ c_max(f, 20).
 control(c).
 windmill(w).
 storage_plant(psh).
+caloric_plant(f).
 
 c(c, i1, 0).
 c(c, i2, 5).

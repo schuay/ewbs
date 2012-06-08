@@ -89,10 +89,15 @@ to_produce_f(Z) :- control(C), c(C, o1, A), c(C, o2, B), to_produce(C, X),
 
 c(C, o3, 0) :- control(C), load_exceeds_or_equals_demand(C), not ab(C).
 
-% assuming that fossil fuel max capacity is ignored by control station
 c(C, o3, Z) :- control(C), demand_exceeds_load(C),
-               to_produce_f(Z),
+               to_produce_f(Z), c_max(F, MaxCap), caloric_plant(F),
+               Z < MaxCap,
                not ab(C).
+
+c(C, o3, MaxCap) :- control(C), demand_exceeds_load(C),
+                    to_produce_f(Z), c_max(F, MaxCap), caloric_plant(F),
+                    Z >= MaxCap,
+                    not ab(C).
 
 %%%%% switching output %%%%%
 

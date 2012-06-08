@@ -6,6 +6,7 @@ c_max(f, 20).
 
 control(c).
 storage_plant(psh).
+caloric_plant(f).
 
 c(c, i1, 0).
 c(c, i2, 50).
@@ -19,6 +20,6 @@ expect_c(c, i4, 0).
 
 expect_c(c, o1, 15).
 expect_c(c, o2, 0).
-expect_c(c, o3, 35).
+expect_c(c, o3, 20).
 expect_c(c, o4, 1).
 expect_c(c, o5, 0).
