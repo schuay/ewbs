@@ -24,4 +24,4 @@ in_c(s_wind, 5).		% defines the current wind speed.
 in_p(p_in, 40).		% defines the incoming power of the system in Kilowatt,
 
 % expected output
-expected_out_p(p_out,39).	% power output of the windmill
+expect_out_p(p_out,39).	% power output of the windmill
